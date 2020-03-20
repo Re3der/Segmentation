@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/shotgun.gd" type="Script" id=1]
+[ext_resource path="res://scenes/worm/segments/deployable/with_turret/turret.tscn" type="PackedScene" id=2]
+
+
+[node name="segment" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+reload_speed = 0.5
+bullet_livetime = 0.5
+bullet_anim_time = 0.1
+shot = 10
+spread = 0.5

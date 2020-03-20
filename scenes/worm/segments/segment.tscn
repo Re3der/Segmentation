@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/worm/segment.png" type="Texture" id=2]
+[ext_resource path="res://scripts/segment.gd" type="Script" id=3]
+[ext_resource path="res://textures/worm/joint.png" type="Texture" id=4]
+[ext_resource path="res://textures/worm/health_bar.png" type="Texture" id=5]
+
+[node name="segment" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="img" parent="." instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+
+[node name="pivot" type="Position2D" parent="img"]
+z_index = 100
+
+[node name="bar" type="TextureProgress" parent="img/pivot"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -31.6352
+margin_top = 6.20249
+margin_right = 32.3648
+margin_bottom = 70.2025
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+tint_under = Color( 1, 0, 0, 0.623529 )
+tint_progress = Color( 0.0470588, 1, 0, 0.662745 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer" type="Timer" parent="img/pivot"]
+
+[node name="shape" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="joint" parent="." instance=ExtResource( 1 )]
+z_index = -1
+texture = ExtResource( 4 )
+[connection signal="area_shape_entered" from="." to="." method="_on_segment_area_shape_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/worm/segments/segment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/segment_deployable.gd" type="Script" id=2]
+
+[node name="segment" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="trans_tween" type="Tween" parent="." index="3"]
+
+[node name="path" type="Line2D" parent="trans_tween" index="0"]
+z_index = -2
+default_color = Color( 0.882353, 0.129412, 0.129412, 0.541176 )
+begin_cap_mode = 2
+end_cap_mode = 2
+[connection signal="mouse_entered" from="." to="." method="_on_segment_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_segment_mouse_exited"]

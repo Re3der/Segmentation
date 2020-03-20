@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/worm/segments/segment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/segment_end.gd" type="Script" id=2]
+[ext_resource path="res://textures/worm/head.png" type="Texture" id=3]
+
+[node name="segment" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="img" parent="." index="0"]
+texture = ExtResource( 3 )
